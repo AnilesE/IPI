@@ -1,0 +1,13 @@
+How to get GITHUB DESKTOP for UBUNTU
+
+- On Your Desktop: klick on the button int the lower left corner (Applications)
+- Open Terminal
+- Type in: sudo wget https://github.com/shiftkey/desktop/releases/download/release-2.9.3-linux3/GitHubDesktop-linux-2.9.3-linux3.deb
+- Type in: sudo apt-get install gdebi-core
+- Type in: sudo gdebi GitHubDesktop-linux-2.9.3-linux3.deb
+
+- On Your Desktop: klick on the button int the lower left corner (Applications)
+- Search for the GitHubDesktop-linux-2.9.3-linux3.deb file and open it
+- Klick install
+- GitHub Desktop should be found under Applications
+
