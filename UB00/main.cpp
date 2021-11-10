@@ -25,3 +25,5 @@ int main()
     int b = 0;
     cout<<cond(a==b, 0, cond(a>b, 1, -1))<<endl;
 }
+
+
