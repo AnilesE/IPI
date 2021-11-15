@@ -2,8 +2,8 @@
 
 // a)
 bool ungerade(int x) {
-    int rest = zahl % 2;
-    if (rest == 0)
+    int rest = x % 2;
+    if (x == 0)
         return false;
     else
         return true;
@@ -11,20 +11,20 @@ bool ungerade(int x) {
 
 // d)
 int multisignal (int y, int z) {
-    // ... implement me!
-    //return ???;
+    int produkt = y * z;
+    printf("Weitere Multiplikation \n");
+    return produkt;
 }
 
 // b) & c)
 int quadrat (int x) {
-    // ... implement me!
-    //return ???;
+    return cond(x<0, 0, cond(x==0, 1, pow(x,2)));
 }
 
 // b) & d)
 int exponentation(int b, int ex) {
-    // ... implement me!
-    //return ???;
+    return cond(ex==0,1,cond(ungerade(ex), multisignal(b, pow(b, ex-1)), multisignal(pow(b, ex/2), pow(b, ex/2))));
+    //return cond(ex==0,1,cond(ungerade(ex), b * pow(b, ex-1), quadrat(pow(b, ex/2))));
 }
 
 
