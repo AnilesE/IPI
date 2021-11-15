@@ -2,8 +2,11 @@
 
 // a)
 bool ungerade(int x) {
-    // ... implement me!
-    //return ???;
+    int rest = zahl % 2;
+    if (rest == 0)
+        return false;
+    else
+        return true;
 }
 
 // d)
