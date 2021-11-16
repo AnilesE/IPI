@@ -1,0 +1,5 @@
+compiling main.cpp with terminal:
+
+$ cd Documents/GitHub/IPI/UB00
+$ g++ main.cpp
+$ ./a.out
