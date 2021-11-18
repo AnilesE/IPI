@@ -11,15 +11,19 @@ void hello()
 
 bool is_zero(int zahl)
 {
-    if (zahl == 0)
-        return true;
-    else
-        return false;
+    return zahl == 0;
+ }
+
+int sum(int n)
+{
+    return cond(n == 0, 0, n + sum(n-1));
 }
+
 
 int main()
 {
     hello();
+    is_zero(1);
 
     int a = -10;
     int b = 0;
