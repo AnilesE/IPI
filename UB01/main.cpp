@@ -2,18 +2,13 @@
 
 // a)
 bool ungerade(int x) {
-    int rest = x % 2;
-    if (x == 0)
-        return false;
-    else
-        return true;
+    return cond(x % 2, 0, 1);
 }
 
 // d)
 int multisignal (int y, int z) {
-    int produkt = y * z;
     printf("Weitere Multiplikation \n");
-    return produkt;
+    return y * z;
 }
 
 // b) & c)
