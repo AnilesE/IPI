@@ -1,25 +1,41 @@
 #include "fcpp.hh"
 
+// Group: Valeria Dragan, Ben Ishaia, Selina Ernst
+
 // a)
 bool ungerade(int x) {
-    return cond(x % 2, 0, 1);
+    return cond(x % 2 != 0, 1, 0);
 }
 
 // d)
-int multisignal (int y, int z) {
+int multisignal(int y, int z) {
     printf("Weitere Multiplikation \n");
     return y * z;
 }
 
 // b) & c)
-int quadrat (int x) {
-    return cond(x<0, 0, cond(x==0, 1, pow(x,2)));
+int quadrat(int x) {
+    return cond(x<0, 0, cond(x==0, 1, x*x));
 }
 
 // b) & d)
 int exponentation(int b, int ex) {
-    return cond(ex==0,1,cond(ungerade(ex), multisignal(b, pow(b, ex-1)), multisignal(pow(b, ex/2), pow(b, ex/2))));
-    //return cond(ex==0,1,cond(ungerade(ex), b * pow(b, ex-1), quadrat(pow(b, ex/2))));
+
+    return cond(ex==0,
+                1,
+                cond(ungerade(ex) == 1,
+                     multisignal(b, exponentation(b, ex-1)),
+                     multisignal(exponentation(b, ex/2), exponentation(b, ex/2)))
+                );
+
+    /*
+    return cond(ex==0, 1,
+                cond(ungerade(ex),
+                     b * exponentation(b, ex-1),
+                     quadrat(exponentation(b, ex/2)))
+                );
+    */
+
 }
 
 
@@ -29,6 +45,7 @@ int main(int argc, char* argv[]) {
     // über die Konsole einlesen und das
     // ganze sogar funktional verpacken!
     // Wichtig ist dann aber, dass du dieses Programm über eine Konsole ausführst!
+
     return print(
                 exponentation(enter_int("Basis: "), enter_int("Exponent: "))
                 );
