@@ -49,14 +49,13 @@ void ad(int b, int n)
 int main()
 {
     print("-----------------------------task1a");
-    print("Determinanten:");
-    cout << determinante_float(100,0.01,-0.01,100) <<
-            ';' <<
-            determinante_double(100,0.01,-0.01,100) <<
-            ';' <<
-            determinante_float(1,1,0.9,1.9) <<
-            ';' <<
-            determinante_double(1,1,0.9,1.9) << endl;
+    print("Matrix A:");
+    print(determinante_float(100,0.01,-0.01,100));
+    print(determinante_double(100,0.01,-0.01,100));
+
+    print("Matrix B:");
+    print(determinante_float(1,1,0.9,1.9));
+    print(determinante_double(1,1,0.9,1.9));
     print("-----------------------------task1b");
     ad(10,14);
     ad(2,14);
