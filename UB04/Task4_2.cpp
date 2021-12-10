@@ -6,15 +6,13 @@ using namespace std;
 
 float zins(float z, int n)
 {
-    float x = 1 + (z/n);
-    float z_eff = pow(x, n) - 1;
+    float z_eff = pow(1 + (z/n), n) - 1;
     return z_eff;
 }
 
 double zins(double z, int n)
 {
-    double x = 1 + (z/n);
-    double z_eff = pow(x, n) - 1;
+    double z_eff = pow(1 + (z/n), n) - 1;
     return z_eff;
 }
 
@@ -25,10 +23,10 @@ void info(int n)
 
     int Abrechnungsvorgaenge = n;
 
-    float z_eff_float = zins(z_float,1);
+    float z_eff_float = zins(z_float,n);
     float z_eff_diff_float = exp(z_float) - 1 - z_eff_float;
 
-    double z_eff_double = zins(z_double,1);
+    double z_eff_double = zins(z_double,n);
     double z_eff_diff_double = exp(z_double) - 1 - z_eff_double;
 
     print("----------------------------------");

@@ -28,7 +28,7 @@ void ad(int b, int n)
     printf("-------");
     print(b);
 
-    while (n>=0)
+    while (n>0)
     {
       printf("---");
       print(n);
