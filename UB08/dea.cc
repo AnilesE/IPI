@@ -75,14 +75,24 @@ int  dea::nachfolge_zustand(int zustand, int symbol){
 };
 
 bool dea::in_alphabet(char symbol){
-    // Alphabet: kleine Buchstaben a bis ... -> ASCII 97 bis ...
+    // Alphabet: kleine Buchstaben a bis ... max z -> ASCII 97 bis ... max 97 + 25
     int ascii_symbol = (int) symbol;
     if (0 <= ascii_symbol-97 < anzahl_symbole) return true;
     else return false;
 }
 
 bool dea::verarbeite(char*  eingabe){
-    int pos = 0;
+    bool result = false;
+    int z = 0;
+    for (int pos = 0; pos < 10; pos++){
+        char s = eingabe[pos];
+        z = _prog[zeile(z,s)];
+    }
+    for (int i=0; i < anzahl_zustaende; i++){
+        if (z == _akz[i]) result = true;
+    }
+    return result;
+
 }
 
 int main(int argc, char** argv) {
