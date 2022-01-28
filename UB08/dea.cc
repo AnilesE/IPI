@@ -13,21 +13,21 @@ class dea{
   public:
     dea(programm prog, zustandsmenge akz);
           // der Startzustand ist immer gleich Zustand 0
-      
+
     void drucke_programm();
     bool verarbeite(char  eingabe[]);
-    
+
   private:
     programm _prog;    // letzter Spalte der Übergangstabelle
     zustandsmenge _akz; // Menge der akzeptierenden Zustände
-      
+
     void drucke_zeile(int z_vorher, int symbol, int z_nachher );
-      
+
     int  zeile(int zustand, int symbol);
     int  zeile_zu_zustand(int zeile);
     int  zeile_zu_symbol(int zeile);
     int  nachfolge_zustand(int zustand, int symbol);
-      
+
     bool in_alphabet(char symbol);
 };
 
@@ -48,9 +48,9 @@ void dea::drucke_programm(){
     std::cout << '\n' << "Die akzeptierenden Zustaende sind: " ;
     for(int zustand = 0; zustand < anzahl_zustaende; zustand = zustand+1){
         if (_akz[zustand]){std::cout << zustand << ' ';}
-    }    
-    std::cout << ".\n" << std::endl;  
-    
+    }
+    std::cout << ".\n" << std::endl;
+
 }
 
 
@@ -63,11 +63,11 @@ int  dea::zeile(int zustand, int symbol){
 };
 
 int  dea::zeile_zu_zustand(int zeile)   {
-    return zeile/anzahl_symbole;          
+    return zeile/anzahl_symbole;
 };
 
 int  dea::zeile_zu_symbol(int zeile)    {
-    return zeile%anzahl_symbole;           
+    return zeile%anzahl_symbole;
 };
 
 int  dea::nachfolge_zustand(int zustand, int symbol){
@@ -82,9 +82,10 @@ bool dea::in_alphabet(char symbol){
 }
 
 bool dea::verarbeite(char*  eingabe){
+    int length = 10; // dont know how to get length
     bool result = false;
     int z = 0;
-    for (int pos = 0; pos < 10; pos++){
+    for (int pos = 0; pos < length; pos++){
         char s = eingabe[pos];
         z = _prog[zeile(z,s)];
     }
@@ -100,17 +101,17 @@ int main(int argc, char** argv) {
     zustandsmenge akz = {true, false, false};  // nur Zustand 0 ist akzeptierend
     dea automat(prog,akz);
     automat.drucke_programm();
-    
+
     char* eingabe;
     char  leeres_wort[1]={0};
-    
+
     if(argc>1) {
          eingabe=argv[1];
     }
     else{           // fängt leere Eingabe ab
           eingabe=leeres_wort;
     }
-    
+
     if (automat.verarbeite(eingabe)){
         std::cout << "Das Eingabewort " << eingabe << " ist in der Sprache.\n";
     }
